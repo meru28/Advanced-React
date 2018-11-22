@@ -29,8 +29,10 @@ class CreateItem extends Component {
   state = {
     title: 'Cool Shoes',
     description: 'I love those Shoes',
-    image: 'dog.jpeg',
-    largeImage: 'large-dog.jpg',
+    image:
+      'https://res.cloudinary.com/rumahberbagi/image/upload/v1542512591/sickfits/t5dhxnugp9ggtovraljz.png',
+    largeImage:
+      'http://res.cloudinary.com/rumahberbagi/image/upload/c_scale,q_auto,w_1000/v1542512591/sickfits/t5dhxnugp9ggtovraljz.png',
     price: 1000
   }
 
