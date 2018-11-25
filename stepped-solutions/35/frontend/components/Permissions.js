@@ -1,8 +1,8 @@
-import { Query } from 'react-apollo';
-import Error from './ErrorMessage';
-import gql from 'graphql-tag';
-import Table from './styles/Table';
-import SickButton from './styles/SickButton';
+import { Query } from 'react-apollo'
+import Error from './ErrorMessage'
+import gql from 'graphql-tag'
+import Table from './styles/Table'
+import SickButton from './styles/SickButton'
 
 const possiblePermissions = [
   'ADMIN',
@@ -10,8 +10,8 @@ const possiblePermissions = [
   'ITEMCREATE',
   'ITEMUPDATE',
   'ITEMDELETE',
-  'PERMISSIONUPDATE',
-];
+  'PERMISSIONUPDATE'
+]
 
 const ALL_USERS_QUERY = gql`
   query {
@@ -22,7 +22,7 @@ const ALL_USERS_QUERY = gql`
       permissions
     }
   }
-`;
+`
 
 const Permissions = props => (
   <Query query={ALL_USERS_QUERY}>
@@ -36,21 +36,27 @@ const Permissions = props => (
               <tr>
                 <th>Name</th>
                 <th>Email</th>
-                {possiblePermissions.map(permission => <th>{permission}</th>)}
+                {possiblePermissions.map(permission => (
+                  <th>{permission}</th>
+                ))}
                 <th>👇🏻</th>
               </tr>
             </thead>
-            <tbody>{data.users.map(user => <User user={user} />)}</tbody>
+            <tbody>
+              {data.users.map(user => (
+                <User user={user} />
+              ))}
+            </tbody>
           </Table>
         </div>
       </div>
     )}
   </Query>
-);
+)
 
 class User extends React.Component {
   render() {
-    const user = this.props.user;
+    const user = this.props.user
     return (
       <tr>
         <td>{user.name}</td>
@@ -63,11 +69,11 @@ class User extends React.Component {
           </td>
         ))}
         <td>
-          <SickButton>Update</SickButton>
+          <SickButton>Updat{loading ? 'ing' : 'e'}</SickButton>
         </td>
       </tr>
-    );
+    )
   }
 }
 
-export default Permissions;
+export default Permissions
