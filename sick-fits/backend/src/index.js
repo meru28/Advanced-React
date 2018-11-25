@@ -9,7 +9,7 @@ const server = createServer()
 
 server.express.use(cookieParser())
 
-// Decode the JWT so we can get the user Id in each request
+// 1. Decode the JWT so we can get the user Id in each request
 server.express.use((req, res, next) => {
   const { token } = req.cookies
   if (token) {
@@ -17,6 +17,18 @@ server.express.use((req, res, next) => {
     // Put the userId onto the req for future requests to access
     req.userId = userId
   }
+  next()
+})
+
+// 2. Create a middleware that populates the user on each request
+server.express.use(async (req, res, next) => {
+  // If they aren't logged in, skip this
+  if (!req.userId) return next()
+  const user = await db.query.user(
+    { where: { id: req.userId } },
+    '{ id, email, name, permissions }'
+  )
+  req.user = user
   next()
 })
 
