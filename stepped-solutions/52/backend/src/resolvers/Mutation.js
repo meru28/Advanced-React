@@ -309,7 +309,7 @@ const Mutations = {
         quantity: cartItem.quantity,
         user: { connect: { id: userId } },
       };
-      delete orderItem.id;
+      delete orderItem.id;q
       return orderItem;
     });
 
