@@ -39,7 +39,6 @@ const Query = {
     const hasPermissionToSeeOrder = ctx.request.user.permissions.includes(
       'ADMIN'
     )
-    console.log({ ownsOrder, hasPermissionToSeeOrder })
     if (!ownsOrder && !hasPermissionToSeeOrder) {
       throw new Error("You can't see this budd")
     }
