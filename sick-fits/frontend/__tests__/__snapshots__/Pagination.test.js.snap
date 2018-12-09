@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination /> renders pagination for 18 items 1`] = `
+<div
+  className="PaginationStyles-aduuar-0 ewJsCc"
+  data-test="pagination"
+>
+  <SideEffect(Head)>
+    <Head />
+  </SideEffect(Head)>
+  <Link
+    href={
+      Object {
+        "pathname": "items",
+        "query": Object {
+          "page": NaN,
+        },
+      }
+    }
+    prefetch={true}
+  >
+    <a
+      aria-disabled={false}
+      className="prev"
+      href="items?page="
+      onClick={[Function]}
+    >
+      ← Prev
+    </a>
+  </Link>
+  <p>
+    Page 
+     of 
+    <span
+      className="totalPages"
+    >
+      5
+    </span>
+    !
+  </p>
+  <p>
+    18
+     Items Total
+  </p>
+  <Link
+    href={
+      Object {
+        "pathname": "items",
+        "query": Object {
+          "page": NaN,
+        },
+      }
+    }
+    prefetch={true}
+  >
+    <a
+      aria-disabled={false}
+      className="next"
+      href="items?page="
+      onClick={[Function]}
+    >
+      Next →
+    </a>
+  </Link>
+</div>
+`;
